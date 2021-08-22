@@ -1,0 +1,5 @@
+{
+  "rest-client.defaultHeaders": {
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU3M2M4YzIwLWMxMjItNDU3Yy1iYWRjLWUwMGZlNGFjODMyOCIsImlhdCI6MTYyOTYzNDM5MywiZXhwIjoxNjI5NzIwNzkzfQ.TrrypH_7ymBrDz001tEI1JVySOLiXypBSdpiyacEEsQ"
+  },
+}
