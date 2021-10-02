@@ -92,6 +92,9 @@ module.exports = {
 				95: "0.95",
 				100: "1",
 			},
+			borderWidth: {
+				"1": "1px"
+			},
 			fontFamily: {
 				inter: ['"Inter"', "sans-serif"],
 				poppins: ['"Poppins"', "sans-serif"],
