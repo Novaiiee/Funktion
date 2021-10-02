@@ -13,6 +13,7 @@ router.post("/create", getUserFromToken, verifyTodoBody("create"), async (req, r
 		id: shortid(),
 		createdAt: new Date().toISOString(),
 		userID: user.id,
+		completed: false
 	});
 
 	user.todos = [...user.todos, todo.id];
@@ -34,6 +35,16 @@ router.put("/update", getUserFromToken, verifyTodoBody("update"), async (req, re
 	const savedTodo = await todo.save();
 	res.status(200).json({ success: true, todo: savedTodo });
 });
+
+router.put("/complete", getUserFromToken, async (req, res) => {
+	const id = req.query.id as string;
+	const todo = await TodoModel.findOne({ id });
+	if (!todo) return res.status(404).json({ error: "Todo not Found" });
+
+	todo.completed = true;
+	const saved = await todo.save();
+	res.status(200).json({ todo: saved, success: true })
+})
 
 router.delete("/delete", getUserFromToken, verifyToken, async (req, res) => {
 	const id = req.query.id as string;
@@ -68,3 +79,4 @@ router.get("/", getUserFromToken, verifyToken, async (req, res) => {
 });
 
 export { router as todoRoute };
+

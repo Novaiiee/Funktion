@@ -1,5 +1,5 @@
 {
   "rest-client.defaultHeaders": {
-    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU3M2M4YzIwLWMxMjItNDU3Yy1iYWRjLWUwMGZlNGFjODMyOCIsImlhdCI6MTYyOTYzNDM5MywiZXhwIjoxNjI5NzIwNzkzfQ.TrrypH_7ymBrDz001tEI1JVySOLiXypBSdpiyacEEsQ"
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU3M2M4YzIwLWMxMjItNDU3Yy1iYWRjLWUwMGZlNGFjODMyOCIsImlhdCI6MTYzMDE2NDk2NywiZXhwIjoxNjMwMjUxMzY3fQ.LmhdGwNsAernOEO1dIR8R0orczT5IArn84eE2kKVsp0"
   },
 }

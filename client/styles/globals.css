@@ -7,3 +7,11 @@
 * {
   font-family: "Inter", sans-serif
 }
+
+.grayscale-image {
+  filter: grayscale(100%);
+}
+
+.home {
+  overflow-x: hidden;
+}

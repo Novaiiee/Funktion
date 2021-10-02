@@ -33,7 +33,9 @@ router.post("/login", verifyAuthBody("login"), async (req, res) => {
 	const { email, password } = req.body;
 	const user = await UserModel.findOne({ email });
 
-	if (!user && !(await compare(password, user.password))) {
+	if (!user) return res.status(400).json({ error: "Invalid Credentials" });
+
+	if (!(await compare(password, user.password))) {
 		return res.status(400).json({ error: "Invalid Credentials" });
 	}
 
@@ -50,3 +52,4 @@ router.get("/user", verifyToken, async (req, res) => {
 
 export { router as authRoute };
 
+const name = "";

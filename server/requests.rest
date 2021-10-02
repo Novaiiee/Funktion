@@ -33,7 +33,7 @@ content-type: application/json
 GET http://localhost:8000/todos/all
 
 ###
-GET http://localhost:8000/todos?id=dJxD23rrS
+GET http://localhost:8000/todos?id=MKFFpkw1F
 
 ###
 DELETE http://localhost:8000/todos/delete?id=dJxD23rrS
@@ -44,5 +44,8 @@ Content-Type: application/json
 
 { 
   "name": "Werwer",
-  "id": "s9_H9Flvs"
+  "id": "MKFFpkw1F"
 }
+
+###
+PUT http://localhost:8000/todos/complete?id=MKFFpkw1F HTTP/1.1

@@ -6,6 +6,7 @@ export interface TodoProps {
 	id: string;
 	name: string;
 	createdAt: string;
+	completed: boolean;
 	deleteTodo: (id: string) => void;
 	update: (id: string, name: string) => void;
 	complete: (id: string) => void;

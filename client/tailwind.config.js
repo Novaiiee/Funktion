@@ -3,7 +3,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
 	purge: ["*.tsx"],
-	darkMode: "class", // or 'media' or 'class'
+	darkMode: "class", // 'media' for system default or 'class' for manual
 	theme: {
 		extend: {
 			colors: {
@@ -64,7 +64,7 @@ module.exports = {
 				"90vh": "90vh",
 			}),
 			minWidth: (theme) => ({
-				...defaultTheme.width,
+				...theme.width,
 				"10vw": "10vw",
 				"20vw": "20vw",
 				"30vw": "30vw",
@@ -202,7 +202,7 @@ module.exports = {
 		rotate: ["responsive", "hover", "focus"],
 		scale: ["responsive", "hover", "focus"],
 		skew: [],
-		space: [],
+		space: ["responsive"],
 		stroke: [],
 		strokeWidth: [],
 		tableLayout: [],

@@ -6,6 +6,7 @@ interface TodoDocument extends Document {
   content: string;
   createdAt: string;
   userID: string;
+  completed: boolean;
 }
 
 export const TodoSchema = new Schema<TodoDocument>({
@@ -13,7 +14,8 @@ export const TodoSchema = new Schema<TodoDocument>({
 	name: String,
 	content: String,
   createdAt: String,
-  userID: String
+  userID: String,
+  completed: Boolean
 });
 
 export const TodoModel = model<TodoDocument>("funktion-todo", TodoSchema);

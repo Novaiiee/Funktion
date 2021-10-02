@@ -1,13 +1,20 @@
-import { Meta, Story } from "@storybook/react";
+import { Story, Meta } from "@storybook/react";
 import { Navbar, NavbarProps } from "../Navbar";
 
 const Template: Story<NavbarProps> = (props) => <Navbar {...props} />;
 
-export const Default = Template.bind({});
+export const Black = Template.bind({});
+export const Transparent = Template.bind({});
+Transparent.args = {
+	transparent: true,
+}
 
 const component = {
 	title: "Navbar",
 	component: Navbar,
-} as Meta;
+	args: {
+		initToggle: true
+	}
+} as Meta<NavbarProps>;
 
 export default component;
