@@ -12,10 +12,10 @@ export const InputField: FC<InputFieldProps> = ({ name, placeholder }) => {
 			<Field
 				className="border-1 border-gray-400 shadow-sm rounded-md px-4 py-2 font-medium w-full"
 				name={name}
-				type={name !== "username" ? name : "text"}
+				type={name !== "name" ? name : "text"}
 				placeholder={placeholder}
 			/>
-			<ErrorMessage name={name} className="text-red-500"/>
+			<ErrorMessage name={name} className="text-red-500" />
 		</>
 	);
 };

@@ -1,4 +1,5 @@
 const path = require("path");
+
 module.exports = {
 	stories: [
 		// Paths to the story files

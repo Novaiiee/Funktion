@@ -1,14 +1,14 @@
 import * as yup from "yup";
 
-const LoginSchema = yup.object({
-	email: yup.string().required("Required*").email("Not an email"),
+export const LoginSchema = yup.object().shape({
+	email: yup.string().email("Not an email").required("Required*"),
 	password: yup.string().required("Required*"),
 });
 
-const RegisterSchema = yup.object({
-	username: yup.string().required("Required*").min(3),
-	email: yup.string().required("Required*").email("Not an email"),
-	password: yup.string().required("Required*").min(6),
+export const RegisterSchema = yup.object().shape({
+	username: yup.string().min(3).required("Required*"),
+	email: yup.string().email("Not an email").required("Required*"),
+	password: yup.string().min(6).required("Required*"),
 });
 
 export function useValidationSchema(type: FormType) {
