@@ -5,7 +5,7 @@ const Template: Story<TodoProps> = (props) => <Todo {...props} />;
 
 export const Default = Template.bind({});
 Default.args = {
-	name: "Work out on Monday",
+	todoName: "Work out on Monday",
 	createdAt: new Date().toLocaleDateString(),
 };
 

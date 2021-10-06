@@ -44,6 +44,8 @@ module.exports = {
 					800: "#080808",
 					900: "#040404",
 				},
+				lightModeBackground: "#EBF0F1",
+				darkModeBackground: "#1E1E1E",
 			},
 			flex: {
 				1: "1 1 0%",
@@ -93,7 +95,7 @@ module.exports = {
 				100: "1",
 			},
 			borderWidth: {
-				"1": "1px"
+				1: "1px",
 			},
 			fontFamily: {
 				inter: ['"Inter"', "sans-serif"],

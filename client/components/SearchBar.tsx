@@ -15,7 +15,7 @@ export const SearchBar: FC<SearchBarProps> = ({ value, onChange, submit, placeho
 	return (
 		<form
 			onSubmit={submit}
-			className="flex space-x-4 p-4 rounded-md shadow-md ring-2 ring-gray-200 dark:bg-black"
+			className="flex space-x-4 p-4 max-h-14 rounded-md shadow-md ring-2 ring-gray-200 bg-white dark:bg-black"
 		>
 			<Search color="#a1a1aa" />
 			<input

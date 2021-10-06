@@ -1,0 +1,14 @@
+POST http://localhost:8000/todos/create HTTP/1.1
+Content-type: application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUxYjg3ODJhLTE0YzctNGUxMi1hYzNmLWZlMDIxZGJlOWM4ZiIsImlhdCI6MTYzMzU1NTUwNiwiZXhwIjoxNjMzNjQxOTA2fQ._uoqhO-lIaFqYuOTJqLeWMpzVlrkzJ0pP3iI9tX0AAQ
+
+{
+  "name": "Work outasdasdasd",
+  "content": "Work outasdasdasdas you fat ugly cow"
+}
+
+###
+
+GET http://localhost:8000/todos/all HTTP/1.1
+Content-type: application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUxYjg3ODJhLTE0YzctNGUxMi1hYzNmLWZlMDIxZGJlOWM4ZiIsImlhdCI6MTYzMzU1NTUwNiwiZXhwIjoxNjMzNjQxOTA2fQ._uoqhO-lIaFqYuOTJqLeWMpzVlrkzJ0pP3iI9tX0AAQ

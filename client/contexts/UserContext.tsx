@@ -1,10 +1,11 @@
 import axios, { AxiosResponse } from "axios";
 import { useRouter } from "next/dist/client/router";
-import { createContext, FC, useEffect, useState } from "react";
+import { createContext, FC, useCallback, useEffect, useState } from "react";
 
 export interface UserContextState {
 	register: (v: FormValues) => void;
 	login: (v: FormValues) => void;
+	logout: () => void;
 	user: User | null;
 	authErrors: string[];
 }
@@ -20,6 +21,7 @@ export const UserProvider: FC = ({ children }) => {
 	const router = useRouter();
 	const [user, setUser] = useState<User | null>(null);
 	const [authErrors, setAuthErrors] = useState<string[]>([]);
+	const [hasLoggedOut, setHasLoggedOut] = useState(false);
 
 	const requestCallback = (res: AxiosResponse<AuthResponse>) => {
 		const data = res.data;
@@ -28,6 +30,16 @@ export const UserProvider: FC = ({ children }) => {
 		setAuthErrors([]);
 		localStorage.setItem("FUNKTION_ACCESS_TOKEN", data.token);
 
+		router.push("/dashboard/todos");
+	};
+
+	
+	const logout = () => {
+		setHasLoggedOut(true);
+		setUser(null);
+		setAuthErrors([]);
+
+		localStorage.removeItem("FUNKTION_ACCESS_TOKEN");
 		router.push("/");
 	};
 
@@ -62,27 +74,35 @@ export const UserProvider: FC = ({ children }) => {
 			});
 	};
 
-	const startupLogin = (token: string) => {
-		axios
-			.get<AuthResponse>("http://localhost:8000/auth/user", { headers: { Authorization: `Bearer ${token}` } })
-			.then((res) => {
-				const data = res.data;
+	const startupLogin = useCallback(
+		(token: string) => {
+			axios
+				.get<AuthResponse>("http://localhost:8000/auth/user", {
+					headers: { Authorization: `Bearer ${token}` },
+				})
+				.then((res) => {
+					const data = res.data;
+					setUser({ ...data.user });
 
-				setUser({ ...data.user });
-			})
-			.catch(() => {
-				return;
-			});
-	};
+					router.push("/dashboard/todos");
+				})
+				.catch(() => {
+					return;
+				});
+		},
+		[router]
+	);
 
 	useEffect(() => {
 		const token = localStorage.getItem("FUNKTION_ACCESS_TOKEN");
-		if (!token) return;
 
-		startupLogin(token);
-	}, []);
+		if (hasLoggedOut || !token) router.push("/");
+		else startupLogin(token);
+	}, [startupLogin, hasLoggedOut, router]);
 
 	return (
-		<UserContext.Provider value={{ authErrors, user, register, login }}>{children}</UserContext.Provider>
+		<UserContext.Provider value={{ logout, authErrors, user, register, login }}>
+			{children}
+		</UserContext.Provider>
 	);
 };
